@@ -10,7 +10,7 @@ REQUIREMENTS = [
 
 setup(
     name="pyfanity",
-    version="0.0.1",
+    version=VERSION,
     author="Kevin Tang",
     author_email="stampixel@pm.me",
     license="MIT",
