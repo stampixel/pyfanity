@@ -1,3 +1,9 @@
-from pyfanity import example
+import pyfanity
 
-print(example.add_one(12))
+# from pyfanity import example
+
+
+print(pyfanity.add_one(12))
+
+print(pyfanity.version)
+print(pyfanity.get_version())

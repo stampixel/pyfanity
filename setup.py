@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
-VERSION = "0.1.0"
-DESCRIPTION = "A simple and light weight profanity filter package."
+VERSION = "0.1.1"
+DESCRIPTION = "A simple and lightweight profanity filter package."
 LONG_DESCRIPTION = ""
 
 REQUIREMENTS = [
