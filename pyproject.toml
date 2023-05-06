@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "pyfanity"
-version = "0.1.1"
+version = "0.1.2"
 description = "A simple and light weight profanity filter package."
-authors = ["bourrasque <stampixel@pm.me>"]
+authors = ["bourrasque <stampixel@pm.me>", "Blueblitz135 <aidanleung135@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "pyfanity"}]
+packages = [{ include = "pyfanity" }]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
