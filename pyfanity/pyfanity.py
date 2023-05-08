@@ -20,4 +20,4 @@ class Pyfanity:
         pass
 
     def isprofane(self, s: str) -> bool:
-        pass
+        return len(self.get_Profanity()) > 0
