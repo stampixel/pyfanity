@@ -5,7 +5,7 @@ Main file
 
 class Pyfanity:
     def __init__(self):
-        ignoreLeetspeak = False
+        self.ignoreLeetspeak = False
 
     def sanitize_string(self) -> str:
         pass
@@ -14,4 +14,4 @@ class Pyfanity:
         pass
 
     def isprofane(self, s: str) -> bool:
-        pass
+        return len(self.get_Profanity()) > 0
