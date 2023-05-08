@@ -46,7 +46,7 @@ default_profanities = [
 	"jerk",
 	"jizz",
 	"labia",
-	"masturbat",
+	"masturbate",
 	"muff",
 	"naked",
 	"nazi",
