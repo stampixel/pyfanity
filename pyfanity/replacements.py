@@ -3,6 +3,8 @@ Mapping of all character that can replace letters.
 """
 
 default_character_replacements = {
+    # '()': 'o' is not in the dictionary as () takes up two indexes.
+
     # Leetspeak
     '0': 'o',
     '1': 'i',
