@@ -3,8 +3,8 @@ Main file
 """
 from typing import Tuple, List
 
-from replacements import default_character_replacements
-from profanities import default_profanities
+from pyfanity.replacements import default_character_replacements
+from pyfanity.profanities import default_profanities
 
 
 class Pyfanity:
@@ -17,9 +17,16 @@ class Pyfanity:
         self.sanitize_spaces = True
 
     def sanitize_string(self, s: str, remember_original_indexes: bool) -> tuple[str, list[int]]:
+        """
+        Sanitizes the string, applying leetspeak and special character replacements.
+
+        :param s: str
+        :param remember_original_indexes: bool
+        :return: tuple[str, list[int]]
+        """
         s = s.lower()
         if self.sanitize_leetspeak and self.sanitize_special_char and not remember_original_indexes:
-            s.replace("()", " ")
+            s.replace("()", "o")
         temp_s = ""
         for char in s:
             if char in self.default_character_replacements:
@@ -29,10 +36,12 @@ class Pyfanity:
                 elif self.sanitize_leetspeak and self.default_character_replacements[char] != " ":
                     temp_s += self.default_character_replacements[char]
                     continue
-                temp_s += char
+            temp_s += char
         s = temp_s
         s = self.remove_accents(s) if self.sanitize_accents == True else s
         original_indexes = []
+
+        # Keeps track of original indexes of characters, preventing errors
         if remember_original_indexes:
             for i in range(len(s)):
                 if s[i] != " " or not self.sanitize_spaces:
