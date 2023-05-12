@@ -14,4 +14,4 @@ from pyfanity.pyfanity import Pyfanity
 
 test_obj = Pyfanity(default_character_replacements, default_profanities)
 
-print(test_obj.sanitize_string("asda()@@   $s@!#!$@#d", True))
+print(test_obj.sanitize_string("asda()@@   $s@!#!$@#d", False))
