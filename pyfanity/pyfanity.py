@@ -52,7 +52,11 @@ class Pyfanity:
         return s, original_indexes
 
     def get_profanity(self, s: str) -> str:
-        pass
+        s, _ = self.sanitize_string(s, False)
+        for word in default_profanities:
+            if word == s:
+                return word
+        return ""
 
     def is_profane(self, s: str) -> bool:
         return len(self.get_profanity(s)) > 0
