@@ -1,3 +1,7 @@
+"""
+File not currently in use, please view pyproject.toml instead
+"""
+
 from setuptools import setup, find_packages
 
 VERSION = "0.1.1"

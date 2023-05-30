@@ -2,14 +2,18 @@
 Main file
 """
 from typing import Tuple, List
+from unidecode import unidecode
 
 from pyfanity.replacements import default_character_replacements
 from pyfanity.profanities import default_profanities
+from pyfanity.falseprofanities import default_false_negatives, default_false_positives
 
 
 class Pyfanity:
-    def __init__(self, default_character_replacements, default_profanities):
+    def __init__(self, default_character_replacements, default_profanities, default_false_negatives, default_false_positives):
         self.default_profanities = default_profanities
+        self.default_false_negatives = default_false_negatives
+        self.default_false_positives = default_false_positives
         self.default_character_replacements = default_character_replacements
         self.sanitize_leetspeak = True
         self.sanitize_special_char = True
@@ -52,14 +56,44 @@ class Pyfanity:
         return s, original_indexes
 
     def get_profanity(self, s: str) -> str:
+        """
+        Gets the first profanity which occurs in a string.
+
+        :param s: str
+        :return: str
+        """
         s, _ = self.sanitize_string(s, False)
-        for word in default_profanities:
+        for word in self.default_false_negatives:
+            if word in s:
+                return word
+
+        for word in self.default_false_positives:
+            s.replace(word, "")
+
+        for word in self.default_profanities:
             if word == s:
                 return word
         return ""
 
     def is_profane(self, s: str) -> bool:
+        """
+        Takes a string (word or sentence) and checks if there are profanities.
+
+        :param s: str
+        :return: bool
+        """
         return len(self.get_profanity(s)) > 0
 
     def remove_accents(self, s: str) -> str:
-        pass
+        """
+        Removes accents from a specific string or word.
+        :param s: str
+        :return: str
+        """
+        return unidecode(s)
+
+    def censor(self, s: str):
+        censored = []
+        s, original_indexes = self.sanitize_string(s, True)
+
+        # Implement this
